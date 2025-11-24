@@ -1,14 +1,15 @@
 // app/campaigns/page.js
-import { getAllCampaigns, getOverallInsights } from '@/lib/api';
+
 import CampaignsTable from '../components/CampaignsTable';
+import { getAllCampaigns, getOverallInsights } from '../lib/Api';
 
 // export const revalidate = 10;
 
 export default async function AllCampaignsPage() {
-  // const [campaigns, overall] = await Promise.all([
-  //   getAllCampaigns(),
-  //   getOverallInsights()
-  // ]);
+  const [campaigns, overall] = await Promise.all([
+    getAllCampaigns(),
+    getOverallInsights()
+  ]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-indigo-50 dark:from-gray-900 p-6">
