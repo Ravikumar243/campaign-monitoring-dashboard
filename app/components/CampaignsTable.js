@@ -3,14 +3,15 @@
 import { useState, useEffect } from 'react';
 import { Pause, Play, Download, Filter, Search } from 'lucide-react';
 import { getCampaignInsights } from '../lib/Api';
-
 export default function CampaignsTable({ initialCampaigns }) {
+
+  console.log(initialCampaigns,"initialCampaigns")
   const [campaigns, setCampaigns] = useState(initialCampaigns);
   const [selected, setSelected] = useState(null);
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(false);
-
-  // Live update every 15 sec
+ 
+ 
   useEffect(() => {
     const updateMetrics = async () => {
       setLoading(true);
@@ -38,10 +39,8 @@ export default function CampaignsTable({ initialCampaigns }) {
 
   return (
     <div className="grid lg:grid-cols-3 gap-6">
-      {/* Left: Table */}
       <div className="lg:col-span-2">
         <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl overflow-hidden">
-          {/* Search + Actions */}
           <div className="p-6 border-b dark:border-gray-700">
             <div className="flex flex-col sm:flex-row gap-4">
               <div className="relative flex-1">

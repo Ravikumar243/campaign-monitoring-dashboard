@@ -4,6 +4,7 @@ import { getCampaignInsights } from "../lib/Api";
 
 
 async function getPlatformData(campaigns) {
+  console.log(campaigns,"campaigns")
   const platformMap = {
     meta: { active: 0, paused: 0, completed: 0, spend: 0, roas: 0 },
     google: { active: 0, paused: 0, completed: 0, spend: 0, roas: 0 },

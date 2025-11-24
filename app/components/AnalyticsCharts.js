@@ -1,4 +1,4 @@
-// components/AnalyticsCharts.jsx
+
 'use client';
 import { useState, useEffect } from 'react';
 import {
@@ -10,6 +10,8 @@ const COLORS = ['#8b5cf6', '#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#ec4899'
 
 export default function AnalyticsCharts({ campaigns, overall }) {
   const [bubbleData, setBubbleData] = useState([]);
+  console.log(campaigns,"campaigns")
+  console.log(overall,"overall")
   const [trendData] = useState(() => 
     Array.from({ length: 30 }, (_, i) => ({
       date: new Date(Date.now() - (29 - i) * 86400000).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' }),
@@ -20,10 +22,10 @@ export default function AnalyticsCharts({ campaigns, overall }) {
     }))
   );
 
-  // Enrich campaigns with insights (client-side)
+
   useEffect(() => {
     const enriched = campaigns.map(camp => {
-      // In real app, you'd fetch individual insights here or pass from server
+  
       const mockInsights = {
         spend: Math.random() * 200000 + 50000,
         conversions: Math.floor(Math.random() * 300 + 50),
@@ -50,7 +52,6 @@ export default function AnalyticsCharts({ campaigns, overall }) {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
-      {/* 1. Spend vs ROAS Bubble Chart */}
       <div className="lg:col-span-2">
         <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl p-6 p-8">
           <h3 className="text-2xl font-bold mb-6 text-center bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
@@ -73,7 +74,7 @@ export default function AnalyticsCharts({ campaigns, overall }) {
         </div>
       </div>
 
-      {/* 2. 30-Day Trend */}
+   
       <div className="lg:col-span-2">
         <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl p-8">
           <h3 className="text-2xl font-bold mb-6 text-center">30-Day Performance Trend</h3>
@@ -92,7 +93,7 @@ export default function AnalyticsCharts({ campaigns, overall }) {
         </div>
       </div>
 
-      {/* 3. Conversion Funnel */}
+     
       <div>
         <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl p-8 text-center">
           <h3 className="text-2xl font-bold mb-6">Conversion Funnel</h3>
@@ -107,7 +108,6 @@ export default function AnalyticsCharts({ campaigns, overall }) {
         </div>
       </div>
 
-      {/* 4. Platform Comparison */}
       <div>
         <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl p-8">
           <h3 className="text-2xl font-bold mb-6 text-center">Platform Performance</h3>
@@ -124,7 +124,6 @@ export default function AnalyticsCharts({ campaigns, overall }) {
         </div>
       </div>
 
-      {/* 5. Budget Pace Gauge */}
       <div className="lg:col-span-2">
         <div className="bg-gradient-to-r from-green-500 to-emerald-600 rounded-3xl shadow-2xl p-10 text-white text-center">
           <h3 className="text-4xl font-black mb-6">Budget Pace: ON TRACK</h3>

@@ -1,5 +1,6 @@
 // components/BudgetBurnGauge.js
 export default function BudgetBurnGauge({ percent, spent, total }) {
+  console.log(percent,spent, total, "percent")
   const radius = 120;
   const circumference = 2 * Math.PI * radius;
   const strokeDashoffset = circumference - (percent / 100) * circumference;
